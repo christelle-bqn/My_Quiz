@@ -1,0 +1,21 @@
+/* Inscription */
+
+input {
+    margin-left: 10px;
+}
+
+
+.button-redirection-homepage {
+    font-family: 'Acme', sans-serif;
+    margin-top: 20px;
+    background-color: #4476C5;
+    color: #ffffff;
+}
+
+.button-redirection-homepage:hover {
+    color:#fdc64e;
+}
+
+.button-redirection {
+    margin-top: 10px;
+}

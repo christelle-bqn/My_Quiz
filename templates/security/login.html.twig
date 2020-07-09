@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Quizz - Connexion{% endblock %}
+
+{% block body %}
+
+ <div class="container d-flex flex-column align-items-center">
+    <h1 id="title_quiz">CONNEXION</h1>
+    <div class="container-quiz">
+        <div class="row container-quiz-layout d-flex flex-column align-items-center">
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté en tant que {{ app.user.username }} <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                {% endif %}
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div> 
+                {% endfor %}
+
+                <label for="inputUsername">Pseudo</label>
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" required>
+
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+
+                {#
+                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                    See https://symfony.com/doc/current/security/remember_me.html
+
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" name="_remember_me"> Remember me
+                        </label>
+                    </div>
+                #}
+
+                <button class="btn button-redirection" type="submit">
+                    Connexion
+                </button>
+            </form>
+        </div>
+    </div>
+    <a href="{{ path('homepage')}}" class="btn button-redirection-homepage">Retour à la page d'accueil</a>
+</div>
+{% endblock %}

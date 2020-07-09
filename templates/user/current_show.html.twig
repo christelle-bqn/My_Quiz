@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand">My Quiz</a>
+        <div class="navbar-nav">
+            {% if app.user %}
+                <a class="nav-item nav-link active" href="{{ path('quiz_index')}}">Quiz</a>
+                <a class="nav-item nav-link" href="{{ path('history_index')}}">Historique</a>
+                <a class="nav-item nav-link" href="{{ path('current_user_show')}}">Profil</a>
+                <a class="nav-item nav-link" href="{{ path('app_logout')}}">Deconnexion</a>
+            {% else %}
+                <a class="nav-item nav-link active" href="{{ path('homepage')}}">Home</a>
+                <a class="nav-item nav-link active" href="{{ path('quiz_index')}}">Quiz</a>
+                <a class="nav-item nav-link" href="{{ path('history_index')}}">Historique</a>
+            {% endif %}
+        </div>
+    </nav>
+    <div class="container d-flex flex-column align-items-center">
+        <h1 id="title_quiz">Mon profil</h1>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div> 
+        {% endfor %}
+
+        <div class="container-quiz">
+            <div class="row container-quiz-layout">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Pseudo</th>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="{{ path('current_user_edit')}}" class="btn button-redirection" role="button">Modifier mes informations</a>
+            </div>
+        </div>
+        <a href="{{ path('quiz_index')}}" class="btn button-index-quiz" role="button">Retour à la liste des quiz</a>
+    </div>
+{% endblock %}

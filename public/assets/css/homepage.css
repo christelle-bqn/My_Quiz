@@ -1,0 +1,39 @@
+.title-homepage {
+    font-family: 'Acme', sans-serif;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    padding: 0.5em;
+    color: #4476C5;
+}
+
+.container-links {
+    background-color: #FDFCFD;
+    -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 50px;
+}
+
+#guest_save {
+    font-weight: bold;
+    color: #4476C5;
+    background-color: #CCEBEF;
+    border: 2px solid #44B6C5;
+    border-radius: 5px;
+}
+
+.button-redirection {
+    font-family: 'Acme', sans-serif;
+    margin-bottom: 10px;
+    background-color: #4476C5;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.button-redirection:hover {
+    color:#fdc64e;
+    text-decoration: none;
+
+}
