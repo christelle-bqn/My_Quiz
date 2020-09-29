@@ -14,6 +14,7 @@ class CurrentUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+        ->add('username')
         ->add('email')
         ->add('plainPassword', PasswordType::class, [
             // instead of being set onto the object directly,

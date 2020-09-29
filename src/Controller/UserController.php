@@ -86,6 +86,18 @@ class UserController extends AbstractController
                 $this->addFlash('success', 'Mot de passe modifié, à la prochaine connexion veuillez utiliser le nouveau');
                 return $this->render('security/verification_email.html.twig');
             }
+
+            if ($form_data->getUsername() != null) {
+                $user->setUsername($form->get('username')->getData());
+
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($user);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Pseudo modifié, à la prochaine connexion veuillez utiliser le nouveau');
+                return $this->redirectToRoute('current_user_show');
+            }
             
             if ($user_email == $form_data->getEmail() && $form_data->getPassword() != null) {
                 // encode the plain password

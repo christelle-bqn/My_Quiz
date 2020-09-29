@@ -143,7 +143,7 @@ class QuizController extends AbstractController
                 if ($user) {
                     $user_info = $this->getDoctrine()->getRepository(User::class)->find($user->getId());
                     $category_id = $this->getDoctrine()->getRepository(Categorie::class)->find($category_id);
-                    $date = new \DateTime('@'.strtotime('now'));
+                    $date = new \DateTime();
                     $history = new History();
                     $history->setUser($user_info);
                     $history->setCategorie($category_id);

@@ -23,6 +23,9 @@
         <div class="container-quiz">
             <div class="row container-quiz-layout">
             {{ form_start(form) }}
+                    {{ form_row(form.username, {
+                        label: 'Pseudo :'
+                    }) }}
                     {{ form_row(form.email, {
                         label: 'Email :'
                     }) }}
@@ -34,6 +37,6 @@
 
             </div>
         </div>
-        <a href="{{ path('quiz_index')}}" class="btn button-index-quiz" role="button">Retour à la liste des quiz</a>
+        <a href="{{ path('current_user_show')}}" class="btn button-index-quiz" role="button">Retour à la page profil</a>
     </div>
 {% endblock %}
